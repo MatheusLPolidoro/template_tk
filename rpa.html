@@ -6,19 +6,18 @@
     <title>RPA - PYTHON - MATHEUS</title>
 </head>
 <style>
-    body{background-color: #212121;}
+    body{background-color: #212121;color: aqua; font-size: 15px;text-decoration: none; font-family: 'Courier New', Courier, monospace;}
     a {color: aqua; font-size: 30px;text-decoration: none; font-family: 'Courier New', Courier, monospace;}
     ul{list-style: none;}
 </style>
 <body>
-    
-    <ul>
-        <li><a href="main.html">main</a></li>
-        <li><a href="rpa.html">rpa</a></li>
-        <li><a href="template.html">template</a></li>
-        <li><a href="user.html">user</a></li>
-        <li><a href="win.html">win</a></li>
-        <li><a href="images.html">images</a></li>
-    </ul>
+<pre>
+from pyautogui import *
+
+def teste():
+    moveTo(100, 150)
+    moveTo(400, 0)  
+    moveTo(500, 500, duration=2, tween=easeInOutQuad)
+</pre>
 </body>
 </html>

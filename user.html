@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPA - PYTHON - MATHEUS</title>
+</head>
+<style>
+    body{background-color: #212121;color: aqua; font-size: 15px;text-decoration: none; font-family: 'Courier New', Courier, monospace;}
+    a {color: aqua; font-size: 30px;text-decoration: none; font-family: 'Courier New', Courier, monospace;}
+    ul{list-style: none;}
+</style>
+<body>
+<pre>
+from ctypes import *
+import sys
+import os
+from time import sleep
+from rpa import *
+
+def is_admin():
+    try:
+        return windll.shell32.IsUserAnAdmin()
+    except:
+        return False
+
+
+if is_admin():
+    # Principal
+    block_input = windll.user32.BlockInput 
+    block_input(True)
+    teste()
+    block_input(False)
+else:
+    res = windll.shell32.ShellExecuteW(
+    None, 'runas',
+    '"' + sys.executable + '"',
+    '"' + os.getcwd() + '\\user.py' + '"',
+    None, 1)
+    if res <= 32:
+        raise WindowsError(f'ShellExecute returned error code {res}')       
+</pre>
+</body>
+</html>
